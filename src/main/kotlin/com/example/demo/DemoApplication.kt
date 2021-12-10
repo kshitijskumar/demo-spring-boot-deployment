@@ -31,7 +31,7 @@ class DemoController {
 
 	@GetMapping("oneNull")
 	fun sendOneNullResponse() : OneNullResponse {
-		return OneNullResponse(null, 22, null)
+		return OneNullResponse(null, 22)
 	}
 
 	@GetMapping("/getAllValues")
@@ -52,8 +52,7 @@ data class OnlyName(
 
 data class OneNullResponse(
 	val someName: String?,
-	val someNumber: Int,
-	val list: List<String>? = null
+	val someNumber: Int
 )
 data class Vlogs(
 	val vlogId: Long,
