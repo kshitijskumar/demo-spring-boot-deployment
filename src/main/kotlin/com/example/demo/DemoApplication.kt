@@ -28,8 +28,32 @@ class DemoController {
 			Vlogs(5L,creatorId =  5)
 		)
 	}
+
+	@GetMapping("oneNull")
+	fun sendOneNullResponse() : OneNullResponse {
+		return OneNullResponse("someone", null)
+	}
+
+	@GetMapping("/getAllValues")
+	fun sendAllValues() : OneNullResponse {
+		return OneNullResponse("someone", 22)
+	}
+
+	@GetMapping("/getOnlyName")
+	fun getOnlyName() : OnlyName {
+		return OnlyName("someone")
+	}
+
 }
 
+data class OnlyName(
+	val someName: String
+)
+
+data class OneNullResponse(
+	val someName: String,
+	val someNumber: Int?
+)
 data class Vlogs(
 	val vlogId: Long,
 	val title: String = "Unnamed",
